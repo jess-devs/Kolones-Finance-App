@@ -1,0 +1,36 @@
+# Entorno
+.env
+.env.local
+.env.production
+
+# Dependencias
+/vendor/
+/node_modules/
+
+# Configuracion de editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+/logs/
+
+# Cache
+/cache/
+/tmp/
+
+# Archivos de sesion PHP
+/sessions/
+
+# Uploads de usuario
+/public/uploads/
+
+# Cache de Claude
+.claude/
