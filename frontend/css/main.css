@@ -1,0 +1,305 @@
+/* =========================================
+   TOKENS
+   ========================================= */
+:root {
+  --color-background: #faf7f2;
+  --color-text: #1a1714;
+  --color-text-muted: #6b6158;
+  --color-border: #1a1714;
+
+  --font-display: "Permanent Marker", cursive;
+  --font-body: "DM Sans", sans-serif;
+
+  --text-nav: clamp(0.85rem, 1.2vw, 1rem);
+  --text-hero: clamp(3.5rem, 12vw, 10rem);
+  --text-btn: clamp(0.85rem, 1.2vw, 1rem);
+
+  --space-nav-v: clamp(1.25rem, 2.5vw, 2rem);
+  --space-nav-h: clamp(1.5rem, 4vw, 3.5rem);
+  --space-hero-top: clamp(2rem, 8vh, 6rem);
+
+  --leading-display: 0.95;
+
+  --duration-fast: 150ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   RESET
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   NAV
+   ========================================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-nav-v) var(--space-nav-h);
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: var(--text-nav);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav-link:hover {
+  opacity: 0.5;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100dvh;
+  padding-top: var(--space-hero-top);
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+}
+
+.hero-title-block {
+  padding-top: clamp(4rem, 12vh, 8rem);
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  line-height: var(--leading-display);
+  color: var(--color-text);
+  font-weight: 400;
+}
+
+.title-line {
+  display: block;
+}
+
+.title-line--inline {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* =========================================
+   BOTON TRY
+   ========================================= */
+.btn-try {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.6em 2.8em;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+  /* se mantiene alineado con el texto sin subir con la tipografia display */
+  align-self: center;
+  margin-bottom: 0.1em;
+}
+
+.btn-try:hover {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+/* =========================================
+   ABOUT NAV ITEM
+   ========================================= */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.about img {
+  width: var(--text-nav);
+  height: var(--text-nav);
+  display: block;
+  opacity: 0.85;
+}
+
+.about:hover img {
+  opacity: 0.5;
+}
+
+/* =========================================
+   Document NAV ITEM
+   ========================================= */
+.document {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.document img {
+  width: var(--text-nav);
+  height: var(--text-nav);
+  display: block;
+  opacity: 0.85;
+}
+
+.document:hover img {
+  opacity: 0.5;
+}
+
+.loader-title-block {
+  display: flex;
+  align-items: flex-end;
+  padding-top: clamp(4rem, 12vh, 8rem);
+  padding-left: clamp(2rem, 6vw, 5rem);
+}
+
+/* =========================================
+   eye-lid
+   ========================================= */
+
+.eye-lid {
+  --eye-size: clamp(5rem, 10vw, 9.375rem); /* 80px → 150px */
+  background-color: var(--color-text);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.375rem 0 0.125rem color-mix(in srgb, var(--color-text) 20%, transparent);
+  width: var(--eye-size);
+  height: var(--eye-size);
+}
+
+.eye {
+  background-color: var(--color-background);
+  border-radius: 50%;
+  position: relative; /* ancla para .cornea */
+  transform: translate3d(0, 0, 0) rotate(90deg);
+  width: calc(var(--eye-size) * 0.8);
+  height: calc(var(--eye-size) * 0.8);
+  animation: eye 5s infinite;
+}
+
+@keyframes eye {
+  12%,
+  25% {
+    width: calc(var(--eye-size) * 0.667);
+    height: calc(var(--eye-size) * 0.733);
+  }
+
+  37%,
+  50% {
+    width: calc(var(--eye-size) * 0.4);
+    height: calc(var(--eye-size) * 0.867);
+  }
+
+  63%,
+  75% {
+    width: calc(var(--eye-size) * 0.667);
+    height: calc(var(--eye-size) * 0.687);
+  }
+
+  87% {
+    width: calc(var(--eye-size) * 0.667);
+    height: calc(var(--eye-size) * 0.667);
+  }
+}
+
+.cornea {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-text);
+  border-radius: 50%;
+  width: calc(var(--eye-size) * 0.333);
+  height: calc(var(--eye-size) * 0.333);
+  animation: eye-color 5s infinite;
+}
+
+@keyframes eye-color {
+  63%,
+  75% {
+    background-color: rgb(137, 1, 1);
+  }
+}
+
+.white-pupil {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  width: calc(var(--eye-size) * 0.133);
+  height: calc(var(--eye-size) * 0.133);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 48rem) {
+  .title-line--inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btn-try {
+    font-size: 1rem;
+    padding: 0.7em 2em;
+  }
+}
+
+/* =========================================
+   ACCESIBILIDAD
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
