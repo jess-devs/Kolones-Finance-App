@@ -2,7 +2,7 @@
    TOKENS
    ========================================= */
 :root {
-  --color-background: #FDF6E3;
+  --color-background: #fdf6e3;
   --color-text: #1a1714;
   --color-text-muted: #6b6158;
   --color-border: #1a1714;
@@ -332,6 +332,94 @@ a {
 }
 
 /* =========================================
+   ABOUT SECTION
+   ========================================= */
+.about-section {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+  border-top: 1.5px solid var(--color-border);
+}
+
+.about-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  padding-block: clamp(4rem, 10vh, 6rem);
+}
+
+.about-label {
+  font-family: var(--font-body);
+  font-size: var(--text-nav);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-top: 0.5em;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.about-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: var(--leading-display);
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.4em;
+}
+
+.about-body p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.about-pillars {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--color-border);
+}
+
+.about-pillars li {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+  padding: 0.9em 0;
+  border-bottom: 1.5px solid var(--color-border);
+}
+
+/* Generic scroll fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 48rem) {
@@ -344,6 +432,16 @@ a {
   .btn-try {
     font-size: 1rem;
     padding: 0.7em 2em;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
