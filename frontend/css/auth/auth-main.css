@@ -1,0 +1,207 @@
+:root {
+  --color-background: #fdf6e3;
+  --color-text: #1a1714;
+  --color-text-muted: #6b6158;
+  --color-border: #1a1714;
+
+  --font-display: "Permanent Marker", cursive;
+  --font-body: "DM Sans", sans-serif;
+
+  --text-nav: clamp(0.85rem, 1.2vw, 1rem);
+  --text-hero: clamp(1.5rem, 5vw, 4rem);
+  --text-btn: clamp(0.85rem, 1.2vw, 1rem);
+  --text-label: clamp(0.65rem, 0.9vw, 0.75rem);
+  --text-input: clamp(0.95rem, 1.4vw, 1.1rem);
+
+  --space-nav-v: clamp(1.25rem, 2.5vw, 2rem);
+  --space-nav-h: clamp(1.5rem, 4vw, 3.5rem);
+  --space-hero-top: clamp(2rem, 8vh, 6rem);
+
+  --leading-display: 0.95;
+
+  --duration-fast: 150ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   HERO TITLE — auth override
+   ========================================= */
+.hero-title-block {
+  padding-top: clamp(4rem, 12vh, 8rem);
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  line-height: var(--leading-display);
+  color: var(--color-text);
+  font-weight: 400;
+}
+
+.title-line {
+  display: block;
+}
+
+.title-line--inline {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* =========================================
+   AUTH FORM BLOCK
+   ========================================= */
+.auth-form-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(6rem, 16vh, 11rem);
+  padding-left: clamp(3rem, 8vw, 8rem);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+  max-width: 360px;
+  width: 100%;
+}
+
+/* =========================================
+   FORM GROUP — underline style
+   ========================================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  border-bottom: 1.5px solid
+    color-mix(in srgb, var(--color-border) 30%, transparent);
+  padding-bottom: 0.5em;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.form-group:focus-within {
+  border-bottom-color: var(--color-border);
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.form-group:focus-within .form-label {
+  color: var(--color-text);
+}
+
+.form-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: var(--text-input);
+  font-weight: 400;
+  color: var(--color-text);
+  width: 100%;
+  caret-color: var(--color-text);
+}
+
+.form-input::placeholder {
+  color: color-mix(in srgb, var(--color-text-muted) 50%, transparent);
+}
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.65em 2.8em;
+  white-space: nowrap;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: clamp(0.5rem, 1.5vh, 1rem);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.btn-submit:hover {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+/* =========================================
+   AUTH SWITCH LINK
+   ========================================= */
+.auth-switch {
+  font-family: var(--font-body);
+  font-size: var(--text-nav);
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.auth-switch a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.auth-switch a:hover {
+  opacity: 0.5;
+}
+
+/* =========================================
+   RESPONSIVE — mobile
+   ========================================= */
+@media (max-width: 48rem) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: unset;
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+  }
+
+  .auth-form-block {
+    padding-left: 0;
+    padding-top: clamp(2.5rem, 6vh, 4rem);
+    width: 100%;
+  }
+
+  .auth-form {
+    max-width: 100%;
+  }
+
+  .btn-submit {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   ACCESIBILIDAD
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

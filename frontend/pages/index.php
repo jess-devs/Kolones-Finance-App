@@ -44,7 +44,7 @@
           <span class="title-line">FINANCE</span>
           <span class="title-line title-line--inline">
             APP
-            <a href="#try" class="btn-try">Probar</a>
+            <a href="auth/login.php" class="btn-try">Probar</a>
           </span>
         </h1>
       </div>
