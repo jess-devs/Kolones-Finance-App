@@ -1,1 +1,1 @@
-web: php -S 0.0.0.0:$PORT -t frontend/pages
+web: php -S 0.0.0.0:$PORT -t .
