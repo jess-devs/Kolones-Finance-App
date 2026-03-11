@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../css/auth/auth-main.css" />
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="/frontend/css/auth/auth-main.css" />
+    <link rel="stylesheet" href="/frontend/css/main.css" />
     <title>Kolones Finance — Inicio de sesión</title>
   </head>
   <body>
@@ -18,10 +18,10 @@
       <nav class="site-nav">
         <div class="about" id="about-right">
           <img
-            src="../../assets/svg/auth/run-sports-runner-svgrepo-com.svg"
+            src="/frontend/assets/svg/auth/run-sports-runner-svgrepo-com.svg"
             alt="volver"
           />
-          <a href="../../pages/index.php" class="nav-link">Volver</a>
+          <a href="/frontend/pages/index.php" class="nav-link">Volver</a>
         </div>
       </nav>
     </header>

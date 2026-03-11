@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="/frontend/css/main.css" />
     <title>Kolones Finance App</title>
   </head>
   <body>
@@ -17,7 +17,7 @@
       <nav class="site-nav">
         <div class="about" id="about-right">
           <img
-            src="../assets/svg/attention-exclamation-notification-svgrepo-com.svg"
+            src="/frontend/assets/svg/attention-exclamation-notification-svgrepo-com.svg"
             alt="productos"
           />
           <a href="#about" class="nav-link">Acerca de</a>
@@ -25,7 +25,7 @@
 
         <div class="document">
           <img
-            src="../assets/svg/direction-right-location-svgrepo-com.svg"
+            src="/frontend/assets/svg/direction-right-location-svgrepo-com.svg"
             alt="productos"
           />
           <a
