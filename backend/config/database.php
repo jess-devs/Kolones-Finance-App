@@ -1,11 +1,12 @@
 <?php
 
-function getConexion(): PDO {
-    $host     = getenv('MYSQLHOST');
-    $port     = getenv('MYSQLPORT') ?: '3306';
-    $database = getenv('MYSQLDATABASE');
-    $user     = getenv('MYSQLUSER');
-    $password = getenv('MYSQLPASSWORD');
+function getConexion(): PDO
+{
+    $host     = $_ENV['MYSQLHOST']     ?? getenv('MYSQLHOST');
+    $port     = $_ENV['MYSQLPORT']     ?? getenv('MYSQLPORT') ?: '3306';
+    $database = $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE');
+    $user     = $_ENV['MYSQLUSER']     ?? getenv('MYSQLUSER');
+    $password = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD');
 
     $dsn = "mysql:host={$host};port={$port};dbname={$database};charset=utf8mb4";
 
@@ -18,7 +19,10 @@ function getConexion(): PDO {
         return $pdo;
     } catch (PDOException $e) {
         http_response_code(500);
-        echo json_encode(['mensaje' => 'Error de conexion a la base de datos']);
+        echo json_encode([
+            'mensaje' => 'Error de conexion a la base de datos',
+            'detalle' => $e->getMessage()
+        ]);
         exit;
     }
 }
